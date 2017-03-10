@@ -25,7 +25,12 @@ public class DemoServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
+    // Get client's IP address
+    String ipAddress = req.getRemoteAddr(); // ip
+
+    // Get client's hostname
+    String hostname = req.getRemoteHost(); // hostname
     resp.setContentType("text/plain");
-    resp.getWriter().println("{ \"name\": \"Rodionova\" }");
+    resp.getWriter().println(req.getRemoteAddr()+"{ \"name\": \"Rodionova\" }"+req.getRemoteHost());
   }
 }
